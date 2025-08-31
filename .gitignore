@@ -1,1 +1,21 @@
 /.metadata/
+# 빌드 폴더 무시
+/target/
+build/
+
+# IDE 관련 파일 무시
+.idea/
+.vscode/
+*.iml
+
+# 운영체제에서 생기는 불필요 파일
+.DS_Store
+Thumbs.db
+
+# 환경 설정 파일
+.env
+application-local.yml
+application.porperties
+
+# 로그 파일
+*.log
