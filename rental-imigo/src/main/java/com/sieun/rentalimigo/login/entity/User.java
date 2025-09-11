@@ -33,6 +33,6 @@ public class User {
 	private String nickname;
 	
 	@Column(name="role")
-	private UserRole role;
+	private UserRole role = UserRole.USER;
 
 }

@@ -13,5 +13,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Response<T> {
 	private String message;
+	private boolean isSuccess;
 	private T value;
 }
