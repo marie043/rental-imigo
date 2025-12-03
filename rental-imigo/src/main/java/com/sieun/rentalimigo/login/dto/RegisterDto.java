@@ -25,6 +25,9 @@ public class RegisterDto {
 	@NotBlank(message = "nickname is empty")
 	private String nickname;
 	
+	@NotBlank(message = "regisdent registration number is empty")
+	private String residentRegistrationNumber;
+	
 	private UserRole role;
 	
 }

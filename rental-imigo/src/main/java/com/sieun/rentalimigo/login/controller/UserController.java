@@ -20,11 +20,13 @@ public class UserController {
 	
 	private final UserService userService;
 	
+	//check id is valid and not duplicated
 	@GetMapping("/signin/{login-id}")
 	public Response getLoginIdValid(@PathVariable("login-id")String loginId){
 		return userService.checkLoginIdDupulicated(loginId);
 	}
 	
+	// sign in a user
 	@PostMapping("/signin")
 	public Response createUser(@RequestBody RegisterDto register) {
 		return userService.addUser(register);

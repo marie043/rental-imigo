@@ -9,5 +9,6 @@ import com.sieun.rentalimigo.login.entity.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 	boolean existsByLoginId(String loginId);
+	boolean existsByResidentRegistrationNumber(String residentRegistrationNumber);
 	
 }

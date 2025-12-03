@@ -50,18 +50,24 @@ public class UserServiceImpl implements UserService{
 				res.setValue(null);
 			}
 			else {
-				User entity = userMapper.toEntity(register);
-				User user = userRepository.save(entity);
-				if(user != null) {
-					RegisterVo vo = userMapper.toRegisterVo(user);
-					res.setMessage("new user is registered");
-					res.setSuccess(true);
-					res.setValue(vo);
-				}
-				else {
-					res.setMessage("failed to register new user");
+				if(userRepository.existsByResidentRegistrationNumber(register.getResidentRegistrationNumber())){
+					res.setMessage("user already exists");
 					res.setSuccess(false);
 					res.setValue(null);
+				}else {
+					User entity = userMapper.toEntity(register);
+					User user = userRepository.save(entity);
+					if(user != null) {
+						RegisterVo vo = userMapper.toRegisterVo(user);
+						res.setMessage("new user is registered");
+						res.setSuccess(true);
+						res.setValue(vo);
+					}
+					else {
+						res.setMessage("failed to register new user");
+						res.setSuccess(false);
+						res.setValue(null);
+					}
 				}
 			}
 		}
