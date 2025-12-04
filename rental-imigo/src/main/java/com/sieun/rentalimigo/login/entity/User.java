@@ -34,5 +34,8 @@ public class User {
 	
 	@Column(name="role")
 	private UserRole role = UserRole.USER;
+	
+	@Column(name="resident_registration_number")
+	private String residentRegistrationNumber;
 
 }

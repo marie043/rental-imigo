@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import com.sieun.rentalimigo.common.vo.Response;
 import com.sieun.rentalimigo.login.dto.RegisterDto;
 import com.sieun.rentalimigo.login.entity.User;
+import com.sieun.rentalimigo.login.entity.UserRole;
 import com.sieun.rentalimigo.login.mapper.UserMapper;
 import com.sieun.rentalimigo.login.repository.UserRepository;
 import com.sieun.rentalimigo.login.vo.RegisterVo;
@@ -38,6 +39,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public Response addUser(RegisterDto register) {
 		Response<RegisterVo> res = new Response<RegisterVo>();
+		register.setRole(UserRole.USER);
 		if(!register.getPassword().equals(register.getPasswordCheck())) {
 			res.setMessage("password and password check does not match");
 			res.setSuccess(false);

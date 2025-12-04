@@ -26,8 +26,9 @@ public class RegisterDto {
 	private String nickname;
 	
 	@NotBlank(message = "regisdent registration number is empty")
+	@JsonProperty("resident_registration_number")
 	private String residentRegistrationNumber;
 	
-	private UserRole role;
+	private UserRole role; 
 	
 }
